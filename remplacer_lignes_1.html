@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Remplacer lignes</title>
+</head>
+<body>
+  <p>Texte d'entrée (utilisez <code>/</code> pour les sauts de ligne) :</p>
+  <textarea id="input" rows="6" cols="60"></textarea>
+  <br><br>
+  <button onclick="convertir()">Convertir</button>
+  <br><br>
+  <p>Résultat :</p>
+  <textarea id="output" rows="6" cols="60" readonly></textarea>
+
+  <script>
+    function convertir() {
+      let i = 0;
+      document.getElementById('output').value =
+        document.getElementById('input').value.replace(/\//g, () => `\n<lb n="${++i}"/>`);
+    }
+  </script>
+</body>
+</html>
